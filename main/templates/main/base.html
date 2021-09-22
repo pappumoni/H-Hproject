@@ -1,0 +1,63 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Required Google Fonts -->
+    {% include 'main/fonts.html' %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
+    <link href="{% static 'css/dihh.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+    .cbg-color {
+        /* custonize background color*/
+        background-color: #509060;
+    }
+    .tokens-dv {
+        /* custonize background color*/
+        position: absolute;
+        top: 560px;
+        margin: auto;
+        width: 100%;
+        opacity: 0.5;
+    }
+    .tokens {
+        height: 100px;
+        backgound-color: #509060;
+        opacity: 1.0;
+    }
+    #dv-about {
+        font-family: 'Merienda', cursive;
+        margin-top:100px;
+    }
+    </style>
+
+    <title>Digital Intervention in Handicraft and Handloom - NIELIT KOHIMA</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+        {% include 'main/header.html' %}
+        {% comment %} <div style="height:150px;"></div> {% endcomment %}
+        
+        <div id="content" class="row">
+        {% block content %}
+        {% endblock  %}
+        </div>
+        {% block footer%}
+        {% include 'main/footer.html' %}
+        {% endblock %}
+    </div>
+    <!-- optional
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

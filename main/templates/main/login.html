@@ -1,0 +1,50 @@
+<!-- Modal for Registration -->
+<div class="modal fade" id="offLogin" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog align-items-center">
+    
+    <div class="modal-content align-items-center">
+    <div class="card  text-dark bg-light mb-3 shadow-lg float-right" style="max-width: 18rem;"> <!-- ./card -->
+        <div class="card-header">Login/Signup</div>
+            <form class="row gx-3 gy-2 align-items-center">
+            {% csrf_token %}
+            <div class="card-body"> 
+            <h5 class="card-title">Login</h5>
+            {% comment %} <form action="" method=""> {% endcomment %}
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">&#9919;</span>
+                <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+            </div>
+            {% comment %} <div class="col-auto text-end pb-1">
+                <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+                <select class="form-select" id="specificSizeSelect">
+                    <option selected>Choose...</option>
+                    <option value="1">Official</option>
+                    <option value="2">Artisan</option>
+                </select>
+            </div> {% endcomment %}
+            <div class="col-auto text-end">
+                <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+            </div>
+            {% comment %} </form> {% endcomment %}
+            <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="collapse" href="#dv-forgetPass" role="button" aria-expanded="false" aria-controls="collapseExample">Forget Password</button> | <a type="button" class="btn btn-outline-info btn-sm" href="{% url 'reg' %}">Sign Up</a>
+            </form>
+        </div>
+    
+        <div class="collapse" id="dv-forgetPass">
+            <div class="card card-body">
+            <h3>Forget Password</h3>
+            <form>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4">
+                <button type="submit" class="btn btn-primary mt-2 mb-3">Reset</button>
+            </div></form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div> <!-- ./modal -->

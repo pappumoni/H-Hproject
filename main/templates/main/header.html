@@ -1,0 +1,68 @@
+{% load static %}
+<div id="header" class="row sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="row">
+        <img src="{% static 'images/Banner.png' %}" class="img-fluid" alt="DiHH Banner">
+        {% comment %} <div class="col col-md-2">
+        <a href="#" class="navbar-brand">
+        <img src="{% static 'images/Banner.png' %}" class="d-inline-block align-top"></img>
+        <span class="hidden">Project Logo</span></a></div>
+        <div class="col col-md-5">
+        <a class="ms-0"><img src="{% static 'images/nielit.png' %}" class="d-inline-block d-none d-md-block align-top text-start"></img></a></div>
+        <div class="col col-md-1">
+        <a><img src="{% static 'images/Dihh-logo1.png' %}" class="d-inline-block align-top"></img>
+        </a></div>
+        <div class="col col-md-4 text-end">
+        <a><img src="{% static 'images/govt-of-india.png' %}" class="d-inline-block align-top"></img></a></div> {% endcomment %}
+    </div>
+    </nav>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light mt-100 justify-content-center" style="background-color: #0033cc;background-image: url({% static 'images/bg-footer.jpeg' %});"><!-- background-image: url({% static 'images/bg-nav.jpg' %});-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMobileMenu">
+            <marquee width="60%" direction="left">
+            <a href="{% url 'reg' %}" class="text-light">Online Registration for Artisans</a> | 
+            <a href="#" class="text-light">Online Registration for NGOs</a> |
+            <a href="{% url 'notifications' %}" class="text-light">Download Offline form for Registration</a>
+            </marquee>
+            <ul class="navbar-nav ms-auto text-center">
+                <li>
+                <a class="nav-link text-white" href="{% url 'mindex' %}">Home</a>
+                </li>
+                <li class="nav-link text-white">|</li>
+                <li>
+                <a class="nav-link text-white" href="{% url 'dshindex' %}">Dashboard</a>
+                </li>
+                <li class="nav-link text-white">|</li>
+                <li>
+                <a class="nav-link text-white" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-link text-white">|</li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    More
+                </a>
+                <ul class="dropdown-menu bg-light" aria-labelledby="navbarScrollingDropdown">
+                    <li><a class="dropdown-item" href="{% url 'notifications' %}">Notifications</a></li>
+                    <li><a class="dropdown-item" href="{% url 't_index' %}">Trainings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{% url 'reg' %}">Register</a></li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#offLogin">Login</a></li>
+                </ul>
+                </li>
+                <li class="nav-link text-white">|</li>
+                <li>
+                <a class="nav-link text-white" href="{% url 'gallery' %}">Gallery</a>
+                </li>
+            </ul>
+            {% comment %} <button type="button" class="btn btn-outline-info">SignIn/SignUp</button> {% endcomment %}
+        </div>
+    </nav>
+    <div class="row px-0 mx-0 justify-content-center" style="background-color:#d5f5e3;">
+    <span style="font-family: 'Mate SC', serif;font-size:25px;text-align:center;">"Digital Intervention in Handicraft and Handloom"</span>
+    </div>
+    
+</div>

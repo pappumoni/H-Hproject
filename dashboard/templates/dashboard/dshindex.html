@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Dashboard</title>
+    {% include 'main/fonts.html' %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/charts/chart.css' %}"
+    <!-- bootstrap 5 css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"/>
+    <!-- BOX ICONS CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap5.min.css"/>
+    <!-- custom css -->
+    <script src="{% static 'js/table2excel.js' %}"></script>
+    <script src="{% static 'js/jspdf.min.js' %}"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="row px-0 mx-0">
+        <img src="{% static 'images/Banner.png' %}" class="img-fluid" alt="DiHH Banner">
+        {% comment %} <div class="col col-md-2">
+        <a href="#" class="navbar-brand">
+        <img src="{% static 'images/nielit-logo.png' %}" class="d-inline-block align-top"></img></a>
+        </div>
+        <div class="col col-md-5">
+        <a class="ms-0"><img src="{% static 'images/nielit.png' %}" class="d-inline-block d-none d-md-block align-top text-start"></img></a></div>
+        <div class="col col-md-1">
+        <a><img src="{% static 'images/Dihh-logo1.png' %}" class="d-inline-block align-top"></img>
+        </a></div>
+        <div class="col col-md-4 text-end">
+        <a><img src="{% static 'images/govt-of-india.png' %}" class="d-inline-block align-top"></img></a></div> {% endcomment %}
+    </div>
+    </nav>
+    <!-- Side-Nav -->
+    <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar" style="background-image: url({% static 'images/bg-footer.jpeg' %});">
+      <ul class="nav flex-column text-white w-200">
+        <a href="{% url 'dshindex' %}" class="nav-link h3 text-white">
+          Dashboard
+        </a>
+        <a href="{% url 'mindex' %}" style="text-decoration:none;">
+        <li href="#" class="nav-link active mt-3">
+          <span class="mx-2 text-white"><i class="bx bxs-dashboard"></i>  Home</span>
+        </li></a><hr style="margin:0;">
+        <a href="{% url 'dshindex' %}" style="text-decoration:none;">
+        <li href="#" class="nav-link">
+          <span class="mx-2 text-white"><i class="bx bx-book"></i>  Project Status</span>
+        </li></a><hr style="margin:0;">
+        <a href="#" style="text-decoration:none;">
+        <li href="#" class="nav-link">
+          <span class="mx-2 text-white" onclick="replace1();return false"><i class="bx bx-user-check"></i> Candidate Details</span>
+        </li></a><hr style="margin:0;">
+        <a href="#" style="text-decoration:none;">
+        <li href="#" class="nav-link" onclick="replace2();return false">
+          <span class="mx-2 text-white"><i class="bx bx-food-menu"></i> Training Venue</span>
+        </li></a><hr style="margin:0;">
+        <a href="#" style="text-decoration:none;">
+        <li href="#" class="nav-link" onclick="replace3();return false">
+          <span class="mx-2 text-white"><i class="bx bx-clipboard"></i> Training Details</span>
+        </li></a><hr style="margin:0;">
+        <a href="#" style="text-decoration:none;">
+        <li href="#" class="nav-link" onclick="replace4();return false">
+          <span class="mx-2 text-white"><i class="bx bx-link-external"></i> Login</span>
+        </li></a><hr style="margin:0;">
+        {% comment %} <a href="#" style="text-decoration:none;">
+        <li href="#" class="nav-link">
+          <span class="mx-2 text-white"><i class="bx bx-spreadsheet"></i> Report Generation</span>
+        </li></a><hr style="margin:0;"> {% endcomment %}
+        <span class="nav-link h4 w-100 text-center mt-5">
+          <a href="https://www.instagram.com/nielit_kohima/"><i class="bx bxl-instagram-alt text-white"></i></a>
+          <a href="https://twitter.com/KHM_NIELIT/"><i class="bx bxl-twitter px-2 text-white"></i></a>
+          <a href="https://www.facebook.com/KHM.NIELIT"><i class="bx bxl-facebook text-white"></i></a>
+        </span>
+      </ul>
+
+      
+    </div>
+
+    <!-- Main Wrapper -->
+    <div class="ps-1 my-container active-cont">
+      <!-- Top Nav -->
+      <nav class="navbar top-navbar navbar-light bg-light px-5">
+        <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
+        <p class="display-6 text-primary" style="font-family: 'Mate SC', serif;font-size:25px;text-align:center;">Digital Intervention on Handicraft & Handloom Sector for Livelihood enhancement of artisans of NE States</p><!-- font-family: 'Rampart One', cursive;-->
+      </nav>
+      <!--End Top Nav -->
+      <div class="row px-3 my-2">
+        <div class="card text-dark mb-3 mx-2" style="max-width: 16rem; background-color:#ABEBC6;">
+          <div class="row card-header">Registered Artisans</div>
+          <div class="card-body">
+            <h5 class="card-title">00</h5>
+            <a href="#" class="card-text text-dark">Know More</a>
+          </div>
+        </div>
+        <div class="card text-dark mb-3 mx-2" style="max-width: 16rem; background-color:#85C1E9;">
+          <div class="row card-header">Trained Artisans</div>
+          <div class="card-body">
+            <h5 class="card-title">00</h5>
+            <a href="#" class="card-text text-dark">Know More</a>
+          </div>
+        </div>
+        <div class="card text-dark mb-3 mx-2" style="max-width: 16rem; background-color:#F7DC6F;">
+          <div class=" row card-header">No. of workshop Held</div>
+          <div class="card-body">
+            <h5 class="card-title">00</h5>
+            <a href="#" class="card-text text-dark">Know More</a>
+          </div>
+        </div>
+        <div class="card text-dark mb-3 mx-2" style="max-width: 16rem; background-color:#F1948A;">
+          <div class="row card-header">No. of NGOs Registered</div>
+          <div class="card-body">
+            <h5 class="card-title">00</h5>
+            <a href="#" class="card-text text-dark">Know More</a>
+          </div>
+        </div>
+      </div>
+      <div id="dv-delivery" class="row px-3"><hr>
+        <nav class="navbar navbar-light pt-10 bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1" style="font-family: 'EB Garamond', serif;text-align:center;"><strong>Time Line of the Project (Dummy Chart)</strong></span>
+                <span type="button" id="dnPDF-chart1" class="btn btn-outline-secondary"><i class='bx bx-download'></i></span>
+            </div>
+        </nav>
+        <div class="card ms-2 my-2">
+          <canvas id="ptChart"></canvas>
+        </div><hr>
+        <nav class="navbar navbar-light pt-10 bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1" style="font-family: 'EB Garamond', serif;text-align:center;"><strong>District Wise Status (Dummy Data)</strong></span>
+                <span type="button" id="dnPDF-chart2" class="btn btn-outline-secondary"><i class='bx bx-download'></i></span>
+                <span type="button" id="dnPDF-chart3" class="btn btn-outline-secondary"><i class='bx bx-download'></i></span>
+            </div>
+        </nav>
+        <div class="card mx-3 my-2">
+        <div class="row">
+          <div class="col md-6"><canvas id="sHnChart"></canvas></div>
+          <div class="col md-6"><canvas id="sHlChart"></canvas></div>
+        </div>
+        </div>
+      
+      </div>
+      {% include 'dashboard/statusTables.html' %}
+      
+    </div>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap5.min.js"></script>
+    <!-- custom js -->
+    <script>
+      var menu_btn = document.querySelector("#menu-btn");
+      var sidebar = document.querySelector("#sidebar");
+      var container = document.querySelector(".my-container");
+      menu_btn.addEventListener("click", () => {
+        sidebar.classList.toggle("active-nav");
+        container.classList.toggle("active-cont");
+      });
+    </script>
+    {% block js %}
+    {% endblock  %}
+    <script>
+    $(document).ready(function() {
+      $('.dashTable').DataTable({
+        
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+      });
+    })
+    //$('.mydatatable').DataTable();
+
+    document.getElementById('dnPDF-chart1').addEventListener('click', downloadPDF1);
+    document.getElementById('dnPDF-chart2').addEventListener('click', downloadPDF2);
+    document.getElementById('dnPDF-chart3').addEventListener('click', downloadPDF3);
+
+    //download pdf form hidden canvas
+    function downloadPDF1() {
+      var newCanvas = document.querySelector('#ptChart');
+
+      //create image from dummy canvas
+      var newCanvasImg = newCanvas.toDataURL("image/jpeg", 1.0);
+      
+        //creates PDF from img
+      var doc = new jsPDF('landscape');
+      doc.setFontSize(20);
+      doc.text(15, 15, "Project Time Line Chart");
+      doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
+      doc.save('project-timeline.pdf');
+    }
+    
+    //download pdf form hidden canvas
+    function downloadPDF2() {
+      var newHandicraft = document.querySelector('#sHnChart');
+
+      //create image from dummy canvas
+      var newCanvasImg = newHandicraft.toDataURL("image/jpeg", 1.0);
+      
+        //creates PDF from img
+      var doc = new jsPDF('landscape');
+      doc.setFontSize(20);
+      doc.text(15, 15, "District wise Progress Chart");
+      doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
+      doc.save('district-wise-Handicraft.pdf');
+    }
+
+    function downloadPDF3() {
+      var newHandicraft = document.querySelector('#sHlChart');
+
+      //create image from dummy canvas
+      var newCanvasImg = newHandicraft.toDataURL("image/jpeg", 1.0);
+      
+        //creates PDF from img
+      var doc = new jsPDF('landscape');
+      doc.setFontSize(20);
+      doc.text(15, 15, "District wise Progress Chart");
+      doc.addImage(newCanvasImg, 'JPEG', 10, 10, 280, 150 );
+      doc.save('district-wise-Handloom.pdf');
+    }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="{% static 'js/Charts/Status.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/polyfills.umd.js"></script>
+  </body>
+</html>

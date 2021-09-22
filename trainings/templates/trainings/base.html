@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'css/tLogin.css' %}">
+<title>DiHH Training Portal</title>
+
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+</head>
+<body>
+<div class="w3-bar w3-black w3-border w3-xlarge">
+  <a href="{% url 't_index' %}" class="w3-bar-item w3-button w3-hover-green w3-right"><i class="fa fa-home"></i></a>
+  <a href="{% url 'reg' %}" class="w3-bar-item w3-button w3-hover-green w3-right"><i class="fa fa-user-plus"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-green w3-right" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i class="fa fa-sign-in"></i></a>
+  <a href="{% url 'mindex' %}" class="w3-bar-item w3-button w3-hover-green w3-right"><i class="fa fa-backward"></i></a>
+</div>
+
+{% block content %}
+{% endblock  %}
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="{% static 'images/Ava3.png' %}" alt="Avatar" class="avatar ">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<div class="w3-bottom">
+  <div class="w3-bar w3-black">
+    <a href="#" class="w3-bar-item w3-button">Copyright &copy Nielit Kohima 2021-2022</a>
+  </div>
+</div>
+
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+{% load static %}
+
+<div class="row justify-content-center">
+    <div class="col-8 align-self-center" style="min-height: 80vh;">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Notification</th>
+            <th scope="col">Downloads</th>
+            <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">1</th>
+            <td>Artisans Registration Form</td>
+            <td><a href="#">Download Form</a></td>
+            <td>14,Aug,2021</td>
+            </tr>
+            <tr>
+            <th scope="row">2</th>
+            <td>NGOs Registration Form</td>
+            <td><a href="#">Download Form</a></td>
+            <td>13,Aug,2021</td>
+            </tr>
+            <tr>
+            <th scope="row">3</th>
+            <td>Notification 3</td>
+            <td><a href="#">Download notification</a></td>
+            <td>11,Jun,2021</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+{% endblock %}

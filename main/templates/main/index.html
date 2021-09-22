@@ -1,0 +1,100 @@
+{% extends "main/base.html" %}
+
+
+{% block content %}
+{% load static %}
+
+<div class="row px-0 mx-0">
+{% include 'main/slider.html' %}
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="row py-5 tokens-dv justify-content-center">
+  <div class="col-md-2 d-none d-md-block text-white bg-dark mx-2 tokens p-4 text-center">
+    <span class="fw-light">00</span>
+    <br>Artisans
+  </div>
+  <div class="col-md-2 d-none d-md-block text-white bg-dark mx-2 p-4 text-center">
+    <span class="fw-light">00</span>
+    <br>Trained
+  </div>
+  <div class="col-md-2 d-none d-md-block text-white bg-dark mx-2 p-4 text-center">
+    <span class="fw-light">00</span>
+    <br>Workshops
+  </div>
+  <div class="col-md-2 d-none d-md-block text-white bg-dark mx-2 p-4 text-center">
+    <span class="fw-light">00</span>
+    <br>NGOs
+  </div>
+</div>
+
+<h1 class="fw-lighter text-center" id="dv-about" style="">Digital Intervention in Handicraft and Handloom</h1>
+<div class="d-flex align-items-md-stretch">
+<p class="lead" style="font-family: 'Dosis', sans-serif;font-weight:bold; text-align:justify;padding-left: 50px;padding-right: 50px;">The traditional handlooms and crafts, is the pride of Northeast Indian heritage, are now on the brink of extinction due to the decline of regular buyers, scarcity of raw material and the subsequent and increasing cost of production. For the preservance of unique heritage will be a valuable contribution towards saving our culture and identity but also a viable source of revenue for the rural artisans. Northeastern states of India consists of many varied nature ethicity and culture with their own way of Handicrafts and Handlooms. The artisans involved in this background are facing many challenging time with their crafts and arts, most parts of northeast is at vary remote from the commercial hub and urban consumers of northeast. Remote production is one factor that prevents the artisans from the know-how of demand in the market, and hence the decline. Digital Intervention in this sector will help them to incorporate them into todays compititive market scenario. Also, the lack of investments in this sector resulted in a non-existent supply chain creating bottlenecks in production.</p>
+</div>
+
+<div class="row bg-light mx-0 px-5 py-5 justify-content-center"><!-- cbg-color-->
+    <div class="card mx-1 my-1 shadow" style="width: 18rem;">
+    <img src="{% static 'images/Among.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><strong>Imtimongla Aier</strong></h5>
+        <p class="card-text justify-content-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-sm btn-primary">know me</a>
+    </div>
+    </div>
+    <div class="card mx-1 my-1 shadow" style="width: 18rem;">
+    <img src="{% static 'images/Ava3.png' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><strong>Kheajong YL</strong></h5>
+        <p class="card-text justify-content-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-sm btn-primary">Know me</a>
+    </div>
+    </div>
+    <div class="card mx-1 my-1 shadow" style="width: 18rem;">
+    <img src="{% static 'images/Lucy.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><strong>Metevinu Lucy Kikhi</strong></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-sm btn-primary">Know me</a>
+    </div>
+    </div>
+    <div class="card mx-1 my-1 shadow" style="width: 18rem;">
+    <img src="{% static 'images/Ava3.png' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><strong>Arnok Pongener</strong></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-sm btn-primary">Know me</a>
+    </div>
+    </div>
+</div>
+
+<!-- horizontal line Design -->
+
+<div class="row row-md-8 justify-content-center">
+    <img src="{% static 'images/hr-dr-line.png' %}" class="d-block w-50" alt="" />
+</div>
+
+<div class="row">
+    <div class="col col-md-6 py-4">
+    <h2>Ongoing Status</h2>
+    <p style="font-family: 'Dosis', sans-serif;font-weight:bold;">The project "Digital intervention of handicraft & handloom" is commencng in the year 2021. Trainings in each of the sector is organising on monthly basis, which is empowering the handicraft and handloom in the state of Nagaland as a pilot project initiated by Meity, Govt. of India.</p>
+    <p style="font-family: 'Dosis', sans-serif;font-weight:bold;">The quick status of the handicraft and handloom is going on as mentioned.</p>
+    <button type="button" class="btn btn-sm btn-outline-info"><a class="nav-link" href="{% url 'dshindex' %}">More Details</a></button>
+    </div>
+    <div class="col col-md-6 py-4">
+    <h3 class="my-0">Trainigs</h3><br>
+    <div class="progress mt-1">
+        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">35%</div>
+    </div>
+    <h3 class="my-2">Workshops</h3><br>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+    </div>
+    {% comment %} <h3 class="my-2">Handlooms</h3><br>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+    </div> {% endcomment %}
+    </div>
+</div>
+
+{% endblock  %}

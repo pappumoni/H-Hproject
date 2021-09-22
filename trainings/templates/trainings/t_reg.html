@@ -1,0 +1,85 @@
+{% extends "trainings/base.html" %}
+{% load static %}
+
+{% block content %}
+<p>This is Registration page</p>
+<div class="container w3-light-gray" style="margin:auto;width:75%;">
+    <div class="w3-row-padding w3-padding w3-white">
+        <div class="w3-col m4 w3-white">
+        <label for="States">States</label>
+        <select id="State" name="State">
+            <option value="Arunachal">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Nagaland">Nagaland</option>
+        </select>
+        </div>
+        <div class="w3-col m4 w3-white">
+        <label for="City">City</label>
+        <select id="city" name="City">
+            <option value="Arunachal">Kohima</option>
+            <option value="Assam">Guwahati</option>
+            <option value="Nagaland">Gangtok</option>
+        </select>
+        </div>
+        <div class="w3-col m4 w3-white">
+        <label for="Center">Center</label>
+        <select id="state" name="Center">
+            <option value="Center 1">Center 1</option>
+            <option value="Center 2">Center 2</option>
+            <option value="Center 3">Center 3</option>
+        </select>
+        </div>
+    </div>
+    <div class="w3-row-padding w3-padding w3-white"><hr>
+        <div class="w3-col m4 w3-white">
+        <label for="tName">Full Name of Trainee</label>
+        </div>
+        <div class="w3-col m8 w3-white">
+        <input type="text" name="trainName" value="" placeholder="First Name">
+        <input type="text" name="trainName" value="" placeholder="Last Name">
+        </div>
+    </div>
+    <div class="w3-row-padding w3-padding w3-white"><hr>
+        <div class="w3-col m4 w3-white">
+        <label for="gender">Gender</label>
+        </div>
+        <div class="w3-col m8 w3-white">
+        <input class="w3-radio" type="radio" name="gender" value="male" placeholder="First Name"><label for="male"> Male</label>
+        <input class="w3-radio" type="radio" name="gender" value="female" placeholder="Last Name"><label for="female"> Female</label>
+        </div>
+    </div>
+    <div class="w3-row-padding w3-padding w3-white"><hr>
+        <div class="w3-col m4 w3-white">
+        <label for="DoB">Date of Birth</label>
+        </div>
+        <div class="w3-col m8 w3-white">
+        <select id="tyear" name="year">
+            <option value="Arunachal">-YYYY-</option>
+            <option value="Assam">1987</option>
+            <option value="Nagaland">1988</option>
+        </select>
+        <select id="tmonth" name="month">
+            <option value="Arunachal">-MM-</option>
+            <option value="Assam">Jan</option>
+            <option value="Nagaland">Feb</option>
+        </select>
+        <select id="tdate" name="date">
+            <option value="Arunachal">-DD-</option>
+            <option value="Assam">01</option>
+            <option value="Nagaland">02</option>
+        </select>
+        </div>
+    </div>
+    <div class="w3-row-padding w3-padding w3-white"><hr>
+        <div class="w3-col m4 w3-white">
+        <label for="tCat">Category</label>
+        </div>
+        <div class="w3-col m8 w3-white">
+        <input class="w3-radio" type="radio" name="category" value="SC" placeholder="First Name"><label for="male"> SC</label>
+        <input class="w3-radio" type="radio" name="category" value="ST" placeholder="Last Name"><label for="female"> ST</label>
+        <input class="w3-radio" type="radio" name="category" value="OBC" placeholder="First Name"><label for="male"> OBC</label>
+        <input class="w3-radio" type="radio" name="category" value="Gen" placeholder="First Name"><label for="male"> Gen</label>
+        </div>
+    </div>
+</div>
+{% endblock %}

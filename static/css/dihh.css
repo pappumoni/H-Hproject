@@ -1,0 +1,11 @@
+/*  DIHH CSS  */
+
+.hidden {
+    /*visibility: none;*/
+    display: none;
+}
+
+.opacity-6 {
+    opacity: 0.6;
+}
+

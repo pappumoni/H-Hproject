@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reg/reg2.css' %}">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<title>Artisans Registration</title>
+</head>
+<body style="background-image: url({% static 'images/background1.jpg' %});background-position: center;background-size: cover;">
+	<div class="container">
+	<form action="" method="POST">
+	{% csrf_token %}
+		<div id="form1" class="panel">
+			<h3>Create Account</h3>
+			<input type="text" placeholder="Full Name" required>
+			<input type="email" placeholder="Email" required>
+			<input type="number" placeholder="Phone No." required>
+			<input type="date" placeholder="DoB" required>
+			
+			<div class="btn-box">
+				<button type="button" id="next1">Next</button>
+			</div>
+		</div>
+		
+		<div id="form2" class="panel">
+			<h3>Personal Details</h3>
+			<select name="gender" id="gender" required>
+			  <option value="">Gender</option>
+			  <option value="SC">Male</option>
+			  <option value="ST">Female</option>
+			  <option value="MIN">Other</option>
+			</select>
+			<select name="catagory" id="catagory" required>
+			  <option value="">Choose a Catagory</option>
+			  <option value="SC">SC</option>
+			  <option value="ST">ST</option>
+			  <option value="MIN">MIN</option>
+			  <option value="OBC">OBC</option>
+			  <option value="GEN">GEN</option>
+			</select>
+			<select name="qualification" id="qualification" required>
+			  <option value="">Qualification</option>
+			  <option value="SC">Below Metric</option>
+			  <option value="ST">Metric (X Std)</option>
+			  <option value="MIN">Diploma</option>
+			  <option value="OBC">Graduate</option>
+			  <option value="MIN">Post Graduate</option>
+			  <option value="OBC">Doctorate</option>
+			</select>
+			<input type="text" placeholder="Aadhaar No" required>
+			
+			<div class="btn-box">
+				<button type="button" id="back1">Back</button>
+				<button type="button" id="next2">Next</button>
+			</div>
+		</div>
+		
+		<div id="form3" class="panel">
+			<h3>Address Details</h3>
+			<input type="text" placeholder="Full Address" required>
+			<input type="password" placeholder="Block/Village" required>
+			<select name="district" id="district" required>
+				<option value="">Choose District</option>
+				<option value="Dimapur">Dimapur</option>
+				<option value="Kiphire">Kiphire</option>
+				<option value="Kohima">Kohima</option>
+				<option value="Longleng">Longleng</option>
+				<option value="Mokokchung">Mokokchung</option>
+				<option value="Mon">Mon</option>
+				<option value="Noklak">Noklak</option>
+				<option value="Peren">Peren</option>
+				<option value="Phek">Phek</option>
+				<option value="Tuensang">Tuensang</option>
+				<option value="Wokha">Wokha</option>
+				<option value="Zunheboto">Zunheboto</option>
+			</select>
+			<select name="training" required>
+				<option value="">Choose Training</option>
+				<option value="Train1">Digital Literacy</option>
+				<option value="Train2">Digital Photography and Scanning</option>
+				<option value="Train3">CAD/CAM technology</option>
+				<option value="Train3">IT based Training on Handicraft</option>
+				<option value="Train3">IT based Training on Handloom</option>
+				<option value="Train3">Entrepreneurship & Soft Skill development</option>
+			</select>
+			
+			<div class="btn-box">
+				<button type="button" id="back2">Back</button>
+				<button type="button">Submit</button>
+			</div>
+		</div>
+	</form>
+		<div class="step-row">
+			<div id="progress"></div>
+			<div class="step-col"><small><strong>Step 1</strong></small></div>
+			<div class="step-col"><small><strong>Step 2</strong></small></div>
+			<div class="step-col"><small><strong>Step 3</strong></small></div>
+		</div>
+	</div>
+		
+	
+	<script>
+		var form1 = document.getElementById("form1");
+		var form2 = document.getElementById("form2");
+		var form3 = document.getElementById("form3");
+		
+		var back1 = document.getElementById("back1");
+		var next1 = document.getElementById("next1");
+		var back2 = document.getElementById("back2");
+		var next2 = document.getElementById("next2");
+		
+		var progress = document.getElementById("progress");
+		
+		next1.onclick = function() {
+			form1.style.left = "-450px";
+			form2.style.left = "40px";
+			progress.style.width = "240px";
+		}
+		
+		back1.onclick = function() {
+			form1.style.left = "40px";
+			form2.style.left = "450px";
+			progress.style.width = "120px";
+		}
+		
+		next2.onclick = function() {
+			form2.style.left = "-450px";
+			form3.style.left = "40px";
+			progress.style.width = "360px";
+		}
+		
+		back2.onclick = function() {
+			form2.style.left = "40px";
+			form3.style.left = "450px";
+			progress.style.width = "240px";
+		}
+	</script>
+</body>
+</html>
